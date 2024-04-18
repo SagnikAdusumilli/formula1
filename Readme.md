@@ -1,4 +1,4 @@
-Project Ongoing
+Project Ongoing: 
 Collect forumla1 racing data from https://ergast.com/mrd/ and implement a medalian architecture using databricks and Azure data factory. to ingest process and present data in cloud for analysis and possible model training
 
 features:
