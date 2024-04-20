@@ -10,6 +10,7 @@ results_schema = StructType(fields=[StructField("resultId", IntegerType(), False
     StructField("number", IntegerType(), True),
     StructField("grid", IntegerType(), True),
     StructField("position", StringType(), True),
+    StructField("positionText", IntegerType(), True),
     StructField("positionOrder", IntegerType(), True),
     StructField("points", IntegerType(), True),
     StructField("laps", IntegerType(), True),
@@ -54,6 +55,10 @@ results_final_df = results_with_cols_df.drop(col("statusId"))
 # COMMAND ----------
 
 results_final_df.write.parquet("/mnt/mydbstorage/processed/results", mode="overwrite", partitionBy="race_id")
+
+# COMMAND ----------
+
+display(spark.read.parquet("/mnt/mydbstorage/processed/results").filter('race_id=800'))
 
 # COMMAND ----------
 
