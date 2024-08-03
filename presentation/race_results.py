@@ -36,7 +36,7 @@ race_results_df = results.join(race_circuits_df, results.race_id == race_circuit
 
 # COMMAND ----------
 
-race_results_df = race_results_df.select("race_year", "race_name", "race_date", "circuit_location", "driver_name", "driver_nationality", "team", "grid", "fastest_lap", "race_time", "points").withColumn("created_date", current_timestamp())
+race_results_df = race_results_df.select("race_year", "race_name", "race_date", "circuit_location", "driver_name", "driver_nationality", "team", "grid", "fastest_lap", "race_time", "points", "position").withColumn("created_date", current_timestamp())
 
 # COMMAND ----------
 
@@ -46,6 +46,7 @@ race_results_df.createOrReplaceTempView ('race_results')
 
 # MAGIC %sql
 # MAGIC select * from race_results
+# MAGIC where race_year = 2020 and race_name = 'Abu Dhabi Grand Prix'
 
 # COMMAND ----------
 
